@@ -1,4 +1,5 @@
-const apiKey = "ce74069a05af14cfb5fba6a999c4630a";
+import apiKey from "./api_key";
+console.log(apiKey);
 const input = document.querySelector("input");
 const button = document.querySelector("button");
 
@@ -7,8 +8,8 @@ async function getCity(city) {
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
     );
     let data = await response.json();
-    lat = data.coord.lat;
-    lon = data.coord.lon;
+    const lat = data.coord.lat;
+    const lon = data.coord.lon;
     response = await fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
     );
